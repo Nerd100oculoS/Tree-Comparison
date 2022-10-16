@@ -3,8 +3,9 @@
 
 #include<bits/stdc++.h>
 
-#define MIN_VALUE 0000.0000
-#define MAX_VALUE 9999.9999
+#define MIN_VALUE 00000.00000
+#define MAX_VALUE 99999.99999
+#define PRECISION 5
 #define SIZE_FILE1 500
 #define SIZE_FILE2 5000
 #define SIZE_FILE3 50000
