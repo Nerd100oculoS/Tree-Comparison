@@ -10,15 +10,14 @@ int main(){
     // GeneratorNumbers(SIZE_FILE3,"File3.txt");
     // GeneratorNumbers(SIZE_FILE4,"File4.txt");
     
-
-    BTree_Tree *root = BTree_CreateTree();
+    //BTree_Tree *root = BTree_CreateTree();
     
     
     // InsertNumbersInBTree(&root,"File1.txt");
     // InsertNumbersInBTree(&root,"File2.txt");
     // InsertNumbersInBTree(&root,"File3.txt");
     // start = clock();
-    InsertNumbersInBTree(&root,"File4.txt");
+    //InsertNumbersInBTree(&root,"File4.txt");
     
     //BTree_posordem(root);
     

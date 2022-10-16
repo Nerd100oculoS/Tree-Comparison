@@ -40,6 +40,7 @@ void GeneratorNumbers(const int size, string name_arq){
     file.close();
 }
 
+
 /**
  * @brief Insere
  * 
