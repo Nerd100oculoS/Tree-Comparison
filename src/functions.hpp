@@ -1,7 +1,7 @@
 #ifndef FUNCTIONS_HPP
 #define FUNCTIONS_HPP
 
-#include "btree.hpp"
+#include "./trees/btree/btree.hpp"
 #include<bits/stdc++.h>
 
 #define MIN_VALUE 00000.00000

@@ -47,6 +47,9 @@ void GeneratorNumbers(const int size, string name_arq){
  */
 void InsertNumbersInBTree(BTree_Tree **root, string name_arq){
 
+    clock_t start, end;
+
+    double soma = 000.0000000000;
     string name_file = "./src/files/" + name_arq;
     ifstream file(name_file);
     
@@ -61,10 +64,16 @@ void InsertNumbersInBTree(BTree_Tree **root, string name_arq){
 
             token_number = stod(token_string);
             reg.key = token_number;
+            start = clock();
             BTree_insert(root,reg);
+            end = clock();
+
+            soma += (double)(end - start)/(double)(CLOCKS_PER_SEC);
+
+            cout << "Tempo: " << fixed << setprecision(10) << (double)(end - start)/(double)(CLOCKS_PER_SEC) << endl;
         }
-
-
+        
+        cout << fixed << setprecision(10) << (double)soma/SIZE_FILE4 << endl;
     }else{cout << "\nERRO AO ABRIR O ARQUIVO!\n" << endl;}
 
     file.close();
