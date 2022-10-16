@@ -1,6 +1,7 @@
 #ifndef FUNCTIONS_HPP
 #define FUNCTIONS_HPP
 
+#include "btree.hpp"
 #include<bits/stdc++.h>
 
 #define MIN_VALUE 00000.00000
@@ -20,6 +21,8 @@ using namespace std;
  * @param name_arq nome do arquivo.
  */
 void GeneratorNumbers(const int size, string name_arq);
+
+void InsertNumbersInBTree(BTree_Tree **root, string name_arq);
 
 
 #endif

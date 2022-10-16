@@ -1,8 +1,14 @@
 #include "functions.hpp"
 
+/**
+ * @brief Gerador de números
+ * 
+ * @param size Quantidade de números a serem gerados.
+ * @param name_arq Nome do arquivo a ser criado.
+ */
 void GeneratorNumbers(const int size, string name_arq){
     
-    clock_t start, end;
+    //clock_t start, end;
     
     random_device rd;
     mt19937  ra(rd());
@@ -15,16 +21,16 @@ void GeneratorNumbers(const int size, string name_arq){
     
     if(file.is_open()){
         
-        start = clock();
+        //start = clock();
         for(int i = 0; i < size; i++){
 
             file << fixed << setprecision(PRECISION) << distribution(ra) << endl;
 
         }
-        end = clock();
-        double time_taken = double(end - start) / double(CLOCKS_PER_SEC);
-        cout << "Tempo para gerar " << size << " números: " << fixed << time_taken << setprecision(5)
-            << " segundos" << endl;
+        // end = clock();
+        // double time_taken = double(end - start) / double(CLOCKS_PER_SEC);
+        // cout << "Tempo para gerar " << size << " números: " << fixed << time_taken << setprecision(5)
+        //     << " segundos" << endl;
 
     }else{
 
@@ -32,5 +38,34 @@ void GeneratorNumbers(const int size, string name_arq){
     }
 
     file.close();
+}
 
+/**
+ * @brief Insere
+ * 
+ * @param root 
+ */
+void InsertNumbersInBTree(BTree_Tree **root, string name_arq){
+
+    string name_file = "./src/files/" + name_arq;
+    ifstream file(name_file);
+    
+    string token_string;
+    double token_number;
+
+    BTree_Record reg;
+
+    if(file.is_open()){
+
+        while(getline(file,token_string)){
+
+            token_number = stod(token_string);
+            reg.key = token_number;
+            BTree_insert(root,reg);
+        }
+
+
+    }else{cout << "\nERRO AO ABRIR O ARQUIVO!\n" << endl;}
+
+    file.close();
 }
