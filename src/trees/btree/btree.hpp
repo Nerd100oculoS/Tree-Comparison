@@ -5,6 +5,11 @@
 #include<stdlib.h>
 #include<stdbool.h>
 
+#include<iostream>
+#include<iomanip>
+
+using namespace std;
+
 typedef struct BTree_Record BTree_Record;
 typedef struct BTree_Tree BTree_Tree;
 

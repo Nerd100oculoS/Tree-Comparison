@@ -42,15 +42,15 @@ void GeneratorNumbers(const int size, string name_arq){
 
 
 /**
- * @brief Insere
+ * @brief Insere na arvore
  * 
  * @param root 
  */
 void InsertNumbersInBTree(BTree_Tree **root, string name_arq){
 
-    clock_t start, end;
+    // clock_t start, end;
 
-    double soma = 000.0000000000;
+    // double soma = 000.0000000000;
     string name_file = "./src/files/" + name_arq;
     ifstream file(name_file);
     
@@ -65,17 +65,64 @@ void InsertNumbersInBTree(BTree_Tree **root, string name_arq){
 
             token_number = stod(token_string);
             reg.key = token_number;
-            start = clock();
+            // start = clock();
             BTree_insert(root,reg);
-            end = clock();
+            // end = clock();
 
-            soma += (double)(end - start)/(double)(CLOCKS_PER_SEC);
+            // soma += (double)(end - start)/(double)(CLOCKS_PER_SEC);
 
-            cout << "Tempo: " << fixed << setprecision(10) << (double)(end - start)/(double)(CLOCKS_PER_SEC) << endl;
+            // cout << "Tempo: " << fixed << setprecision(10) << (double)(end - start)/(double)(CLOCKS_PER_SEC) << endl;
         }
         
-        cout << fixed << setprecision(10) << (double)soma/SIZE_FILE4 << endl;
+        // cout << fixed << setprecision(10) << (double)soma/SIZE_FILE4 << endl;
     }else{cout << "\nERRO AO ABRIR O ARQUIVO!\n" << endl;}
 
     file.close();
+}
+
+void SearchAndRemoveNumbersInBTree(BTree_Tree **root){
+
+    steady_clock::time_point start, end;
+
+    int cont = 0;
+    int i = 0;
+
+    double soma_search = 0.0;
+    double soma_remove = 0.0;
+
+    BTree_Record r; 
+    BTree_Tree *aux = BTree_CreateTree();
+
+    ifstream file("./src/files/search.txt");
+
+    string token_string;
+    double token_number;
+
+    if(file.is_open()){
+
+        while(getline(file,token_string)){
+
+            token_number = stod(token_string);
+            r.key = token_number;
+            
+            start = steady_clock::now();
+            BTree_pesquisa(root,&aux,r);
+            cont++;
+            end = steady_clock::now();
+
+            auto elapsed_seconds = duration_cast<duration<double>>(end - start);
+
+            cout << elapsed_seconds.count() << endl;
+
+            // if(aux->reg.key == r.key){
+               
+            //     BTree_remove(root,aux->reg);
+            //     i++;
+            // }
+            
+        }
+    
+    }else{
+        cout << "erro!" << endl;
+    }
 }

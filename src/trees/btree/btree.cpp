@@ -33,14 +33,19 @@ void BTree_insert(BTree_Tree **t, BTree_Record r){
 void BTree_pesquisa(BTree_Tree **t, BTree_Tree **aux, BTree_Record r){
 
   if(*t == NULL){
-    printf("[ERROR]: Node not found!");
+    //cout << "nao!" << endl;
+    return;
+  }
+
+  if((*t)->reg.key == r.key){
+    *aux = *t;
     return;
   }
 
   if((*t)->reg.key > r.key){ BTree_pesquisa(&(*t)->esq, aux, r); return;}
   if((*t)->reg.key < r.key){ BTree_pesquisa(&(*t)->dir, aux, r); return;}
 
-  *aux = *t;
+  
 }
 
 
@@ -72,7 +77,7 @@ void BTree_remove(BTree_Tree **t, BTree_Record r){
 	BTree_Tree *aux;
   	
   	if (*t == NULL){ 
-  		printf("[ERROR]: BTree_Record not found!!!\n");
+      cout << "not found!" << endl;
     	return;
   	}
 
