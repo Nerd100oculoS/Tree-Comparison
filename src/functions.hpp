@@ -2,6 +2,7 @@
 #define FUNCTIONS_HPP
 
 #include "./trees/btree/btree.hpp"
+#include "./trees/avl/avl.hpp"
 #include <iostream>
 #include <string>
 #include <fstream>
@@ -25,6 +26,11 @@ void GeneratorNumbers(const int size, string name_arq);
 
 void InsertNumbersInBTree(BTree_Tree **root, string name_arq);
 void SearchAndRemoveNumbersInBTree(BTree_Tree **root);
+void MakeBinaryTree();
+
+void InsertNumbersInAVL(AVL_Tree **root, string name_arq);
+void SearchAndRemoveNumbersInAVL(AVL_Tree **root);
+void MakeAVLTree();
 
 
 #endif

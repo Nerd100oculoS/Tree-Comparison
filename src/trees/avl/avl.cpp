@@ -44,7 +44,7 @@ void AVL_insert(AVL_Tree **t, AVL_Record r){
 void AVL_pesquisa(AVL_Tree **t, AVL_Tree **aux, AVL_Record r){
 
 	if(*t == NULL){
-		printf("[ERROR]: Node not found!");
+		// printf("[ERROR]: Node not found!");
 		return;
 	}
 
@@ -104,7 +104,7 @@ void AVL_remove(AVL_Tree **t, AVL_Tree **f, AVL_Record r){
 	AVL_Tree *aux;
   	
   	if (*t == NULL){ 
-  		printf("[ERROR]: AVL_Record not found!!!\n");
+  		// printf("[ERROR]: AVL_Record not found!!!\n");
     	return;
   	}
 
