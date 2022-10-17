@@ -1,9 +1,9 @@
 #include "functions.hpp"
 
 /**
- * @brief Gerador de números
+ * @brief Gerador de n\u00fameros
  * 
- * @param size Quantidade de números a serem gerados.
+ * @param size Quantidade de n\u00fameros a serem gerados.
  * @param name_arq Nome do arquivo a ser criado.
  */
 void GeneratorNumbers(const int size, string name_arq){
@@ -29,7 +29,7 @@ void GeneratorNumbers(const int size, string name_arq){
         }
         // end = clock();
         // double time_taken = double(end - start) / double(CLOCKS_PER_SEC);
-        // cout << "Tempo para gerar " << size << " números: " << fixed << time_taken << setprecision(5)
+        // cout << "Tempo para gerar " << size << " n\u00fameros: " << fixed << time_taken << setprecision(5)
         //     << " segundos" << endl;
 
     }else{
@@ -111,8 +111,12 @@ void SearchAndRemoveNumbersInBTree(BTree_Tree **root){
             end = steady_clock::now();
 
             auto elapsed_seconds = duration_cast<duration<double>>(end - start);
-
-            cout << elapsed_seconds.count() << endl;
+	        
+            cout << (double)elapsed_seconds.count() << endl;
+		    
+            soma_search += (double)elapsed_seconds.count();
+		
+            
 
             // if(aux->reg.key == r.key){
                
@@ -121,6 +125,8 @@ void SearchAndRemoveNumbersInBTree(BTree_Tree **root){
             // }
             
         }
+        cout << cont << endl;
+        cout << endl <<  (double)(soma_search/cont) << endl;
     
     }else{
         cout << "erro!" << endl;
