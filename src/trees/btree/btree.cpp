@@ -37,15 +37,10 @@ void BTree_pesquisa(BTree_Tree **t, BTree_Tree **aux, BTree_Record r){
     return;
   }
 
-  if((*t)->reg.key == r.key){
-    *aux = *t;
-    return;
-  }
-
   if((*t)->reg.key > r.key){ BTree_pesquisa(&(*t)->esq, aux, r); return;}
   if((*t)->reg.key < r.key){ BTree_pesquisa(&(*t)->dir, aux, r); return;}
 
-  
+  *aux = *t;
 }
 
 

@@ -1,9 +1,6 @@
 #include "functions.hpp"
 
 int main(){
-
-    // clock_t start, end;
-
     
     // GeneratorNumbers(SIZE_FILE1,"File1.txt");
     // GeneratorNumbers(SIZE_FILE2,"File2.txt");
@@ -19,12 +16,7 @@ int main(){
     SearchAndRemoveNumbersInBTree(&root);
     // InsertNumbersInBTree(&root,"File2.txt");
     // InsertNumbersInBTree(&root,"File3.txt");
-    // start = clock();
     //InsertNumbersInBTree(&root,"File4.txt");
-    
-    // end = clock();
-    // cout << "Tempo total: " << fixed << (double)(end - start)/(double)(CLOCKS_PER_SEC) << setprecision(5) << endl;
-    // cout << endl;
 
     return 0;
 }

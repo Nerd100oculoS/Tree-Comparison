@@ -48,9 +48,11 @@ void GeneratorNumbers(const int size, string name_arq){
  */
 void InsertNumbersInBTree(BTree_Tree **root, string name_arq){
 
-    // clock_t start, end;
+    // Para calculo da media de tempo
+    steady_clock::time_point start, end;
+    double soma = 0.0;
+    int cont = 0;
 
-    // double soma = 000.0000000000;
     string name_file = "./src/files/" + name_arq;
     ifstream file(name_file);
     
@@ -65,16 +67,22 @@ void InsertNumbersInBTree(BTree_Tree **root, string name_arq){
 
             token_number = stod(token_string);
             reg.key = token_number;
-            // start = clock();
+            
+            start = steady_clock::now();
             BTree_insert(root,reg);
-            // end = clock();
+            end = steady_clock::now();
+            cont++;
 
-            // soma += (double)(end - start)/(double)(CLOCKS_PER_SEC);
+            auto time = duration_cast<duration<double>>(end-start);
 
-            // cout << "Tempo: " << fixed << setprecision(10) << (double)(end - start)/(double)(CLOCKS_PER_SEC) << endl;
+            soma += (double)time.count();
+
         }
         
-        // cout << fixed << setprecision(10) << (double)soma/SIZE_FILE4 << endl;
+        cout << "Tempo médio de inserção para o arquivo " << name_arq <<
+        " é de " << fixed <<  setprecision (10) << (double)(soma/cont) <<
+        "seg"  << endl;  
+        
     }else{cout << "\nERRO AO ABRIR O ARQUIVO!\n" << endl;}
 
     file.close();
@@ -82,10 +90,11 @@ void InsertNumbersInBTree(BTree_Tree **root, string name_arq){
 
 void SearchAndRemoveNumbersInBTree(BTree_Tree **root){
 
-    steady_clock::time_point start, end;
-
-    int cont = 0;
-    int i = 0;
+    steady_clock::time_point start_s, end_s;
+    steady_clock::time_point start_r, end_r;
+    
+    int cont_s, cont_r;
+    cont_s = cont_r = 0;
 
     double soma_search = 0.0;
     double soma_remove = 0.0;
@@ -105,28 +114,32 @@ void SearchAndRemoveNumbersInBTree(BTree_Tree **root){
             token_number = stod(token_string);
             r.key = token_number;
             
-            start = steady_clock::now();
+            start_s = steady_clock::now();
             BTree_pesquisa(root,&aux,r);
-            cont++;
-            end = steady_clock::now();
+            end_s = steady_clock::now();
+            cont_s++;
 
-            auto elapsed_seconds = duration_cast<duration<double>>(end - start);
-	        
-            cout << (double)elapsed_seconds.count() << endl;
-		    
-            soma_search += (double)elapsed_seconds.count();
-		
-            
+            auto time_s = duration_cast<duration<double>>(end_s - start_s);
+            soma_search += (double)time_s.count();
 
-            // if(aux->reg.key == r.key){
-               
-            //     BTree_remove(root,aux->reg);
-            //     i++;
-            // }
-            
+            if(!(aux == NULL) && (*aux).reg.key == r.key){
+                
+                start_r = steady_clock::now();
+                BTree_remove(root,aux->reg);
+                end_r = steady_clock::now();
+                cont_r++;
+
+                auto time_r = duration_cast<duration<double>>(end_r - start_r);
+                soma_remove += (double)time_r.count();
+            }
         }
-        cout << cont << endl;
-        cout << endl <<  (double)(soma_search/cont) << endl;
+
+        cout << "Tempo Médio de pesquisa: " << fixed << setprecision(10) <<
+         (double)(soma_search/cont_s) << endl;
+        cout << endl;
+        cout << "Tempo Médio de remoção: " << fixed << setprecision(10) <<
+         (double)(soma_remove/cont_r) << endl;
+
     
     }else{
         cout << "erro!" << endl;
