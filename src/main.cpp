@@ -11,13 +11,9 @@ int main(){
 
     // cout << result << endl;
 
-    // vector<double> vec;
+    MakeVector();
 
-    // InsertAndOrdenateNumbersInVector(vec,"File4.txt");
-
-    // SearchBinaryInVector(vec);
-
-    MakeRBTree();
+    //MakeRBTree();
     
     return 0;
 }

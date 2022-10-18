@@ -42,10 +42,11 @@ void MakeRBTree();
 
 
 void InsertAndOrdenateNumbersInVector(vector<double> &vec, string name_arq);
-void SearchBinaryInVector(const vector<double> vec);
+void SearchBinaryAndRemoveInVector(vector<double> &vec);
 template<typename T>
 int binarySearch(const vector<T> &vec, T &item, int s1, int s2);
 template<typename T>
 int searchVector(const vector<T> &vec, T &item);
+void MakeVector();
 
 #endif

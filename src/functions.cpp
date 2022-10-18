@@ -575,13 +575,15 @@ void InsertAndOrdenateNumbersInVector(vector<double> &vec, string name_arq){
     file.close();
 }
 
-void SearchBinaryInVector(const vector<double> vec){
+void SearchBinaryAndRemoveInVector(vector<double> &vec){
 
+    steady_clock::time_point start_sb, end_sb;
     steady_clock::time_point start_s, end_s;
-    
+    steady_clock::time_point start_r, end_r;
     int cont_s, cont_r;
     cont_s = cont_r = 0;
 
+    double soma_searchBinary = 0.0;
     double soma_search = 0.0;
     double soma_remove = 0.0;
 
@@ -596,21 +598,97 @@ void SearchBinaryInVector(const vector<double> vec){
 
             token_number = stod(token_string);
             
-            start_s = steady_clock::now();
+            start_sb = steady_clock::now();
             searchVector(vec,token_number);
-            end_s = steady_clock::now();
+            end_sb = steady_clock::now();
+            
             cont_s++;
+
+            auto time_sb = duration_cast<duration<double>>(end_sb - start_sb);
+            soma_searchBinary += (double)time_sb.count();
+
+            vector<double>::iterator it;
+            
+            start_s = steady_clock::now();
+            it = find(vec.begin(),vec.end(),token_number);
+            end_s = steady_clock::now();
 
             auto time_s = duration_cast<duration<double>>(end_s - start_s);
             soma_search += (double)time_s.count();
+
+            if(it != vec.end()){
+                
+                start_r = steady_clock::now();
+                vec.erase(it);
+                end_r = steady_clock::now();
+
+                auto time_s = duration_cast<duration<double>>(end_s - start_s);
+                soma_remove += (double)time_sb.count();
+                cont_r++;
+            }
         }
-        //cout << endl << cont_s << endl;
+
+
         cout << "Tempo Médio de pesquisa binária: " << fixed << setprecision(10) <<
-         (double)(soma_search/cont_s) << "s" << endl;
+         (double)(soma_searchBinary/cont_s) << "s" << endl;
+        
+        cout << "Tempo de pesquisa normal:\n"<<
+        "  Tempo total: " << fixed << setprecision(10) <<
+         (double)(soma_search) << "s\n" <<
+         "  Tempo médio: " << fixed << setprecision(10) << (double)(soma_search/cont_s) << endl;
+        
+        cout << "Tempo Médio de remoção: " << fixed << setprecision(10) <<
+         (double)(soma_remove/cont_r) << "s" << endl;
 
     }else{
         cout << "erro!" << endl;
     }
 
     file.close();
+}
+
+void MakeVector(){
+
+    cout << "\nFile1.txt" << endl;
+    for(int i = 0; i < 10; i++){
+
+        vector<double> vec;
+
+        InsertAndOrdenateNumbersInVector(vec, "File1.txt");
+        SearchBinaryAndRemoveInVector(vec);
+        cout << endl << endl;
+
+    }
+
+    cout << "\nFile2.txt" << endl;
+    for(int i = 0; i < 10; i++){
+
+        vector<double> vec;
+
+        InsertAndOrdenateNumbersInVector(vec, "File2.txt");
+        SearchBinaryAndRemoveInVector(vec);
+        cout << endl << endl;
+
+    }
+
+    cout << "\nFile3.txt" << endl;
+    for(int i = 0; i < 10; i++){
+
+        vector<double> vec;
+
+        InsertAndOrdenateNumbersInVector(vec, "File3.txt");
+        SearchBinaryAndRemoveInVector(vec);
+        cout << endl << endl;
+
+    }
+
+    cout << "\nFile4.txt" << endl;
+    for(int i = 0; i < 10; i++){
+
+        vector<double> vec;
+
+        InsertAndOrdenateNumbersInVector(vec, "File4.txt");
+        SearchBinaryAndRemoveInVector(vec);
+        cout << endl << endl;
+    }
 }
