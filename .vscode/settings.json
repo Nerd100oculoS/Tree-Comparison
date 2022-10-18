@@ -4,6 +4,8 @@
         "iostream": "cpp",
         "iosfwd": "cpp",
         "iomanip": "cpp",
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "__config": "cpp",
+        "__nullptr": "cpp"
     }
 }

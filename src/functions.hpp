@@ -37,16 +37,14 @@ void SearchAndRemoveNumbersInAVL(AVL_Tree **root);
 void MakeAVLTree();
 
 void InsertNumbersInRB(rb_tree<double> *root, string name_arq);
-void SearchAndRemoveNumbersInRB(rb_tree<double> **root);
+void SearchAndRemoveNumbersInRB(rb_tree<double> *root);
+void MakeRBTree();
 
 
 void InsertAndOrdenateNumbersInVector(vector<double> &vec, string name_arq);
-
 void SearchBinaryInVector(const vector<double> vec);
-
 template<typename T>
 int binarySearch(const vector<T> &vec, T &item, int s1, int s2);
-
 template<typename T>
 int searchVector(const vector<T> &vec, T &item);
 

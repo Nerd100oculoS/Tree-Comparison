@@ -101,6 +101,13 @@ public:
 
 		std::cout << "check_rb_feature_5 success, black node count:  " << len << std::endl;
 	}
+
+	int search(const_ref_type data){
+
+		if (nullptr == this->root_)
+			return -1;
+		return search_node(nullptr, LEFT_CHILD, this->root_, data);
+	}
 	
 private:
 	int insert_node(node_pointer pp, int pp_child_tag, node_pointer p, const_ref_type data)
@@ -120,6 +127,19 @@ private:
 			return this->insert_node(p, LEFT_CHILD, p->l_child_, data);
 		else
 			return this->insert_node(p, RIGHT_CHILD, p->r_child_, data);
+	}
+
+	int search_node(node_pointer pp, int pp_child_tag, node_pointer p, const_ref_type data)
+	{
+		if (nullptr == p){
+			return -1;
+		}else if(p->data_ == data){
+			return 1;
+		}else if(data < p->data_){
+			return this->search_node(p, LEFT_CHILD, p->l_child_, data);
+		}else{
+			return this->search_node(p, RIGHT_CHILD, p->r_child_, data);
+		}		
 	}
 
 	int erase_node(node_pointer pp, int pp_child_tag, node_pointer p, const_ref_type data)

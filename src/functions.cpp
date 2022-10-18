@@ -403,8 +403,108 @@ void InsertNumbersInRB(rb_tree<double> *root, string name_arq){
     file.close();
 }
 
+void SearchAndRemoveNumbersInRB(rb_tree<double> *root){
 
+    steady_clock::time_point start_s, end_s;
+    steady_clock::time_point start_r, end_r;
+    
+    int cont_s, cont_r;
+    cont_s = cont_r = 0;
 
+    double soma_search = 0.0;
+    double soma_remove = 0.0;
+
+    ifstream file("./src/files/search.txt");
+
+    string token_string;
+    double token_number;
+
+    if(file.is_open()){
+
+        while(getline(file,token_string)){
+
+            token_number = stod(token_string);
+            
+            start_s = steady_clock::now();
+            int i = root->search(token_number); //Apenas para retorno caso encontre.
+            end_s = steady_clock::now();
+            cont_s++;
+
+            auto time_s = duration_cast<duration<double>>(end_s - start_s);
+            soma_search += (double)time_s.count();
+
+            if(i == 1){
+                
+                start_r = steady_clock::now();
+                root->erase(token_number);
+                end_r = steady_clock::now();
+                cont_r++;
+
+                auto time_r = duration_cast<duration<double>>(end_r - start_r);
+                soma_remove += (double)time_r.count();
+            }
+        }
+        //cout << endl << cont_s << endl;
+        cout << "Tempo Médio de pesquisa: " << fixed << setprecision(10) <<
+         (double)(soma_search/cont_s) << "s" << endl;
+
+        //cout << endl << cont_r << endl;
+        cout << "Tempo Médio de remoção: " << fixed << setprecision(10) <<
+         (double)(soma_remove/cont_r) << "s" << endl;
+    
+    }else{
+        cout << "erro!" << endl;
+    }
+
+    file.close();
+}
+
+void MakeRBTree(){
+
+    cout << "\nFile1.txt" << endl;
+    for(int i = 0; i < 10; i++){
+
+        rb_tree<double> root;
+
+        InsertNumbersInRB(&root,"File1.txt");
+        SearchAndRemoveNumbersInRB(&root);
+        cout << endl << endl;
+
+    }
+
+    cout << "\nFile2.txt" << endl;
+    for(int i = 0; i < 10; i++){
+
+        rb_tree<double> root;
+
+        InsertNumbersInRB(&root,"File2.txt");
+        SearchAndRemoveNumbersInRB(&root);
+        cout << endl << endl;
+
+    }
+
+    cout << "\nFile3.txt" << endl;
+    for(int i = 0; i < 10; i++){
+
+        rb_tree<double> root;
+
+        InsertNumbersInRB(&root,"File3.txt");
+        SearchAndRemoveNumbersInRB(&root);
+        cout << endl << endl;
+
+    }
+
+    cout << "\nFile4.txt" << endl;
+    for(int i = 0; i < 10; i++){
+
+        rb_tree<double> root;
+
+        InsertNumbersInRB(&root,"File4.txt");
+        SearchAndRemoveNumbersInRB(&root);
+        cout << endl << endl;
+
+    }
+}
 
 template<typename T>
 int binarySearch(const vector<T> &vec, T &item, int s1, int s2) {

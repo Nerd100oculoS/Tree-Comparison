@@ -7,15 +7,17 @@ int main(){
 
     //MakeAVLTree();
 
-    // rb_tree<double> root;
+    // int result = root.search(6604.18606);
 
-    // InsertNumbersInRB(&root,"teste.txt");
+    // cout << result << endl;
 
-    vector<double> vec;
+    // vector<double> vec;
 
-    InsertAndOrdenateNumbersInVector(vec,"File4.txt");
+    // InsertAndOrdenateNumbersInVector(vec,"File4.txt");
 
-    SearchBinaryInVector(vec);
+    // SearchBinaryInVector(vec);
+
+    MakeRBTree();
     
     return 0;
 }
