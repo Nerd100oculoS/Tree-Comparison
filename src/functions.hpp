@@ -14,6 +14,8 @@
 #include <ctime>
 #include <algorithm>
 #include <vector>
+#include <map>
+#include <unordered_map>
 
 #define MIN_VALUE 00000.00000
 #define MAX_VALUE 99999.99999
@@ -49,4 +51,11 @@ template<typename T>
 int searchVector(const vector<T> &vec, T &item);
 void MakeVector();
 
+void InsertInUnorderedMap(unordered_map<double, int> *umap, string name_arq);
+void SearchAndRemoveUnorderedMap(unordered_map<double, int> *umap);
+void MakeUnorderedMap();
+
+void InsertInMap(map<double, int> *mmap, string name_arq);
+void SearchAndRemoveMap(map<double, int> *mmap);
+void MakeMap();
 #endif

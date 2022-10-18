@@ -692,3 +692,297 @@ void MakeVector(){
         cout << endl << endl;
     }
 }
+
+void InsertInUnorderedMap(unordered_map<double, int> *umap, string name_arq){
+
+    steady_clock::time_point start_s, end_s;
+    double soma = 0.0;
+    int cont = 0;
+
+    string name_file = "./src/files/" + name_arq;
+    ifstream file(name_file);
+    
+    string token_string;
+    double token_number;
+
+    if(file.is_open()){
+
+        while(getline(file,token_string)){
+
+            token_number = stod(token_string);
+            
+            start_s = steady_clock::now();
+            if(umap->find(token_number) != umap->end()){
+
+                (*umap)[token_number]++;
+            
+            }else{
+
+                umap->insert({token_number,0});
+
+            }
+            end_s = steady_clock::now();
+            cont++;
+
+            auto time = duration_cast<duration<double>>(end_s-start_s);
+
+            soma += (double)time.count();
+        }
+        
+        cout << "Tempo médio de inserção: " << 
+         fixed <<  setprecision (10) << (double)(soma/cont) <<
+        "s"  << endl;  
+        
+    }else{cout << "\nERRO AO ABRIR O ARQUIVO!\n" << endl;}
+
+    file.close();
+}
+
+void SearchAndRemoveUnorderedMap(unordered_map<double, int> *umap){
+
+    steady_clock::time_point start_s, end_s;
+    steady_clock::time_point start_r, end_r;
+    
+    int cont_s, cont_r, i = 0;
+    cont_s = cont_r = 0;
+
+    double soma_search = 0.0;
+    double soma_remove = 0.0;
+
+    ifstream file("./src/files/search.txt");
+
+    string token_string;
+    double token_number;
+
+    if(file.is_open()){
+
+        while(getline(file,token_string)){
+
+            token_number = stod(token_string);
+            
+            start_s = steady_clock::now();
+            if(umap->find(token_number) != umap->end()){
+                i = 1;
+            }else{
+                i = 0;
+            }
+            end_s = steady_clock::now();
+            cont_s++;
+
+            auto time_s = duration_cast<duration<double>>(end_s - start_s);
+            soma_search += (double)time_s.count();
+
+            if(i == 1){
+                
+                start_r = steady_clock::now();
+                umap->erase(token_number);
+                end_r = steady_clock::now();
+                cont_r++;
+
+                auto time_r = duration_cast<duration<double>>(end_r - start_r);
+                soma_remove += (double)time_r.count();
+            }
+        }
+        //cout << endl << cont_s << endl;
+        cout << "Tempo Médio de pesquisa: " << fixed << setprecision(10) <<
+         (double)(soma_search/cont_s) << "s" << endl;
+
+        //cout << endl << cont_r << endl;
+        cout << "Tempo Médio de remoção: " << fixed << setprecision(10) <<
+         (double)(soma_remove/cont_r) << "s" << endl;
+    
+    }else{
+        cout << "erro!" << endl;
+    }
+
+    file.close();
+}
+
+void MakeUnorderedMap(){
+
+    cout << "\nFile1.txt" << endl;
+    for(int i = 0; i < 10; i++){
+
+        unordered_map<double,int> umap;
+        InsertInUnorderedMap(&umap, "File1.txt");
+        SearchAndRemoveUnorderedMap(&umap);
+        cout << endl << endl;
+
+    }
+
+    cout << "\nFile2.txt" << endl;
+    for(int i = 0; i < 10; i++){
+
+        unordered_map<double,int> umap;
+        InsertInUnorderedMap(&umap, "File2.txt");
+        SearchAndRemoveUnorderedMap(&umap);
+        cout << endl << endl;
+
+    }
+
+    cout << "\nFile3.txt" << endl;
+    for(int i = 0; i < 10; i++){
+
+        unordered_map<double,int> umap;
+        InsertInUnorderedMap(&umap, "File3.txt");
+        SearchAndRemoveUnorderedMap(&umap);
+        cout << endl << endl;
+
+    }
+
+    cout << "\nFile4.txt" << endl;
+    for(int i = 0; i < 10; i++){
+
+        unordered_map<double,int> umap;
+        InsertInUnorderedMap(&umap, "File4.txt");
+        SearchAndRemoveUnorderedMap(&umap);
+        cout << endl << endl;
+    }
+}
+
+void InsertInMap(map<double, int> *mmap, string name_arq){
+
+    steady_clock::time_point start_s, end_s;
+    double soma = 0.0;
+    int cont = 0;
+
+    string name_file = "./src/files/" + name_arq;
+    ifstream file(name_file);
+    
+    string token_string;
+    double token_number;
+
+    if(file.is_open()){
+
+        while(getline(file,token_string)){
+
+            token_number = stod(token_string);
+            
+            start_s = steady_clock::now();
+            if(mmap->find(token_number) != mmap->end()){
+
+                (*mmap)[token_number]++;
+            
+            }else{
+
+                mmap->insert({token_number,0});
+
+            }
+            end_s = steady_clock::now();
+            cont++;
+
+            auto time = duration_cast<duration<double>>(end_s-start_s);
+
+            soma += (double)time.count();
+        }
+        
+        cout << "Tempo médio de inserção: " << 
+         fixed <<  setprecision (10) << (double)(soma/cont) <<
+        "s"  << endl;  
+        
+    }else{cout << "\nERRO AO ABRIR O ARQUIVO!\n" << endl;}
+
+    file.close();
+}
+void SearchAndRemoveMap(map<double, int> *mmap){
+
+    steady_clock::time_point start_s, end_s;
+    steady_clock::time_point start_r, end_r;
+    
+    int cont_s, cont_r, i = 0;
+    cont_s = cont_r = 0;
+
+    double soma_search = 0.0;
+    double soma_remove = 0.0;
+
+    ifstream file("./src/files/search.txt");
+
+    string token_string;
+    double token_number;
+
+    if(file.is_open()){
+
+        while(getline(file,token_string)){
+
+            token_number = stod(token_string);
+            
+            start_s = steady_clock::now();
+            if(mmap->find(token_number) != mmap->end()){
+                i = 1;
+            }else{
+                i = 0;
+            }
+            end_s = steady_clock::now();
+            cont_s++;
+
+            auto time_s = duration_cast<duration<double>>(end_s - start_s);
+            soma_search += (double)time_s.count();
+
+            if(i == 1){
+                
+                start_r = steady_clock::now();
+                mmap->erase(token_number);
+                end_r = steady_clock::now();
+                cont_r++;
+
+                auto time_r = duration_cast<duration<double>>(end_r - start_r);
+                soma_remove += (double)time_r.count();
+            }
+        }
+        //cout << endl << cont_s << endl;
+        cout << "Tempo Médio de pesquisa: " << fixed << setprecision(10) <<
+         (double)(soma_search/cont_s) << "s" << endl;
+
+        //cout << endl << cont_r << endl;
+        cout << "Tempo Médio de remoção: " << fixed << setprecision(10) <<
+         (double)(soma_remove/cont_r) << "s" << endl;
+    
+    }else{
+        cout << "erro!" << endl;
+    }
+
+    file.close();
+}
+
+
+void MakeMap(){
+
+    cout << "\nFile1.txt" << endl;
+    for(int i = 0; i < 10; i++){
+
+        map<double,int> mmap;
+        InsertInMap(&mmap, "File1.txt");
+        SearchAndRemoveMap(&mmap);
+        cout << endl << endl;
+
+    }
+
+    cout << "\nFile2.txt" << endl;
+    for(int i = 0; i < 10; i++){
+
+        map<double,int> mmap;
+        InsertInMap(&mmap, "File2.txt");
+        SearchAndRemoveMap(&mmap);
+        cout << endl << endl;
+
+    }
+
+    cout << "\nFile3.txt" << endl;
+    for(int i = 0; i < 10; i++){
+
+        map<double,int> mmap;
+        InsertInMap(&mmap, "File3.txt");
+        SearchAndRemoveMap(&mmap);
+        cout << endl << endl;
+
+    }
+
+    cout << "\nFile4.txt" << endl;
+    for(int i = 0; i < 10; i++){
+
+        map<double,int> mmap;
+        InsertInMap(&mmap, "File4.txt");
+        SearchAndRemoveMap(&mmap);
+        cout << endl << endl;
+    }
+}
