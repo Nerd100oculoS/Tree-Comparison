@@ -8,7 +8,9 @@ TARGET   := app
 INCLUDE  := -Iinclude/
 SRC      :=  $(wildcard src/*.cpp)\
 			$(wildcard src/trees/btree/*.cpp)\
-			$(wildcard src/trees/avl/*.cpp)
+			$(wildcard src/trees/avl/*.cpp)\
+			$(wildcard src/trees/rbtree/*.cpp)
+
 
 OBJECTS := $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 
