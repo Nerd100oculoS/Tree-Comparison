@@ -160,7 +160,7 @@ void SearchAndRemoveNumbersInBTree(BTree_Tree **root){
 void MakeBinaryTree(){
 
     cout << "\nFile1.txt" << endl;
-    for(int i = 0; i < 10; i++){
+    for(int i = 0; i < 3; i++){
 
         BTree_Tree *root = BTree_CreateTree();
 
@@ -171,7 +171,7 @@ void MakeBinaryTree(){
     }
 
     cout << "\nFile2.txt" << endl;
-    for(int i = 0; i < 10; i++){
+    for(int i = 0; i < 3; i++){
 
         BTree_Tree *root = BTree_CreateTree();
 
@@ -182,7 +182,7 @@ void MakeBinaryTree(){
     }
 
     cout << "\nFile3.txt" << endl;
-    for(int i = 0; i < 10; i++){
+    for(int i = 0; i < 3; i++){
 
         BTree_Tree *root = BTree_CreateTree();
 
@@ -193,7 +193,7 @@ void MakeBinaryTree(){
     }
 
     cout << "\nFile4.txt" << endl;
-    for(int i = 0; i < 10; i++){
+    for(int i = 0; i < 3; i++){
 
         BTree_Tree *root = BTree_CreateTree();
 
@@ -320,7 +320,7 @@ void SearchAndRemoveNumbersInAVL(AVL_Tree **root){
 void MakeAVLTree(){
 
     cout << "\nFile1.txt" << endl;
-    for(int i = 0; i < 10; i++){
+    for(int i = 0; i < 3; i++){
 
         AVL_Tree *root = AVL_CreateTree();
 
@@ -331,7 +331,7 @@ void MakeAVLTree(){
     }
 
     cout << "\nFile2.txt" << endl;
-    for(int i = 0; i < 10; i++){
+    for(int i = 0; i < 3; i++){
 
         AVL_Tree *root = AVL_CreateTree();
 
@@ -342,7 +342,7 @@ void MakeAVLTree(){
     }
 
     cout << "\nFile3.txt" << endl;
-    for(int i = 0; i < 10; i++){
+    for(int i = 0; i < 3; i++){
 
         AVL_Tree *root = AVL_CreateTree();
 
@@ -353,7 +353,7 @@ void MakeAVLTree(){
     }
 
     cout << "\nFile4.txt" << endl;
-    for(int i = 0; i < 10; i++){
+    for(int i = 0; i < 3; i++){
 
         AVL_Tree *root = AVL_CreateTree();
 
@@ -462,7 +462,7 @@ void SearchAndRemoveNumbersInRB(rb_tree<double> *root){
 void MakeRBTree(){
 
     cout << "\nFile1.txt" << endl;
-    for(int i = 0; i < 10; i++){
+    for(int i = 0; i < 3; i++){
 
         rb_tree<double> root;
 
@@ -473,7 +473,7 @@ void MakeRBTree(){
     }
 
     cout << "\nFile2.txt" << endl;
-    for(int i = 0; i < 10; i++){
+    for(int i = 0; i < 3; i++){
 
         rb_tree<double> root;
 
@@ -484,7 +484,7 @@ void MakeRBTree(){
     }
 
     cout << "\nFile3.txt" << endl;
-    for(int i = 0; i < 10; i++){
+    for(int i = 0; i < 3; i++){
 
         rb_tree<double> root;
 
@@ -495,7 +495,7 @@ void MakeRBTree(){
     }
 
     cout << "\nFile4.txt" << endl;
-    for(int i = 0; i < 10; i++){
+    for(int i = 0; i < 3; i++){
 
         rb_tree<double> root;
 
@@ -650,7 +650,7 @@ void SearchBinaryAndRemoveInVector(vector<double> &vec){
 void MakeVector(){
 
     cout << "\nFile1.txt" << endl;
-    for(int i = 0; i < 10; i++){
+    for(int i = 0; i < 3; i++){
 
         vector<double> vec;
 
@@ -661,7 +661,7 @@ void MakeVector(){
     }
 
     cout << "\nFile2.txt" << endl;
-    for(int i = 0; i < 10; i++){
+    for(int i = 0; i < 3; i++){
 
         vector<double> vec;
 
@@ -672,7 +672,7 @@ void MakeVector(){
     }
 
     cout << "\nFile3.txt" << endl;
-    for(int i = 0; i < 10; i++){
+    for(int i = 0; i < 3; i++){
 
         vector<double> vec;
 
@@ -683,7 +683,7 @@ void MakeVector(){
     }
 
     cout << "\nFile4.txt" << endl;
-    for(int i = 0; i < 10; i++){
+    for(int i = 0; i < 3; i++){
 
         vector<double> vec;
 
@@ -801,7 +801,7 @@ void SearchAndRemoveUnorderedMap(unordered_map<double, int> *umap){
 void MakeUnorderedMap(){
 
     cout << "\nFile1.txt" << endl;
-    for(int i = 0; i < 10; i++){
+    for(int i = 0; i < 3; i++){
 
         unordered_map<double,int> umap;
         InsertInUnorderedMap(&umap, "File1.txt");
@@ -811,7 +811,7 @@ void MakeUnorderedMap(){
     }
 
     cout << "\nFile2.txt" << endl;
-    for(int i = 0; i < 10; i++){
+    for(int i = 0; i < 3; i++){
 
         unordered_map<double,int> umap;
         InsertInUnorderedMap(&umap, "File2.txt");
@@ -821,7 +821,7 @@ void MakeUnorderedMap(){
     }
 
     cout << "\nFile3.txt" << endl;
-    for(int i = 0; i < 10; i++){
+    for(int i = 0; i < 3; i++){
 
         unordered_map<double,int> umap;
         InsertInUnorderedMap(&umap, "File3.txt");
@@ -831,7 +831,7 @@ void MakeUnorderedMap(){
     }
 
     cout << "\nFile4.txt" << endl;
-    for(int i = 0; i < 10; i++){
+    for(int i = 0; i < 3; i++){
 
         unordered_map<double,int> umap;
         InsertInUnorderedMap(&umap, "File4.txt");
@@ -948,7 +948,7 @@ void SearchAndRemoveMap(map<double, int> *mmap){
 void MakeMap(){
 
     cout << "\nFile1.txt" << endl;
-    for(int i = 0; i < 10; i++){
+    for(int i = 0; i < 3; i++){
 
         map<double,int> mmap;
         InsertInMap(&mmap, "File1.txt");
@@ -958,7 +958,7 @@ void MakeMap(){
     }
 
     cout << "\nFile2.txt" << endl;
-    for(int i = 0; i < 10; i++){
+    for(int i = 0; i < 3; i++){
 
         map<double,int> mmap;
         InsertInMap(&mmap, "File2.txt");
@@ -968,7 +968,7 @@ void MakeMap(){
     }
 
     cout << "\nFile3.txt" << endl;
-    for(int i = 0; i < 10; i++){
+    for(int i = 0; i < 3; i++){
 
         map<double,int> mmap;
         InsertInMap(&mmap, "File3.txt");
@@ -978,7 +978,7 @@ void MakeMap(){
     }
 
     cout << "\nFile4.txt" << endl;
-    for(int i = 0; i < 10; i++){
+    for(int i = 0; i < 3; i++){
 
         map<double,int> mmap;
         InsertInMap(&mmap, "File4.txt");
