@@ -12,11 +12,12 @@
 
 ## 2 - Apresentação e objetivo
 
-Por meio de 4 arquivos de entrada, *File1.txt*, *File2.txt*, *File3.txt* e *File4.txt* com respectivamente, 500 (Quinhentos), 5.000 (Cinco Mil), 50.000 (Cinquenta Mil) e 500.000 (Quinhentos Mil) números decimais que variam de `00000.00000` até `99999.99999`. Cada **Estrutura de Dados (ED)** citada no tópico anterior, foi implementada 4 vezes, a mesma  **ED** para cada arquivo. Ou seja, 4 **ABB's**, 4 **AVL's**, 4 **Red-Black's**, 4 **Vetores**, 8 **Tabelas Hash** - ***4 unodered_map's e 4 map's***. Totalizando 24 estruturas criadas por meio da inserção.
-Após a criação de cada estrutura pega-se o arquivo *search.txt* com 10.000 (Dez Mil) números decimais. Este arquivo foi criado copiando de forma aleatória e embaralhando números presentes nos 4 arquivos iniciais de entrada. O arquivo *search.txt*  é utilizado para pesquisa em cada uma das estruturas criadas.
-Fazendo cada um dos procedimentos descritos nos parágrafos acima.
+Por meio de 4 arquivos de entrada, *File1.txt*, *File2.txt*, *File3.txt* e *File4.txt* com respectivamente, 500 (Quinhentos), 5.000 (Cinco Mil), 50.000 (Cinquenta Mil) e 500.000 (Quinhentos Mil) números decimais que variam de `00000.00000` até `99999.99999`. Cada **Estrutura de Dados (ED)** citada no tópico anterior, foi implementada 4 vezes, a mesma  **ED** para cada arquivo. Ou seja, 4 **ABB's**, 4 **AVL's**, 4 **Red-Black's**, 4 **Vetores**, 8 **Tabelas Hash** - ***4 unodered_map's e 4 map's***. Totalizando 24 estruturas criadas por meio da *inserção*.
+Após a criação de cada estrutura pega-se o arquivo *search.txt* com 10.000 (Dez Mil) números decimais. Este arquivo foi criado copiando de forma aleatória e embaralhando números presentes nos 4 arquivos iniciais de entrada. O arquivo *search.txt*  é utilizado para *pesquisa* em cada uma das estruturas criadas.
+Fazendo cada um dos procedimentos descritos nos parágrafos acima para cada uma das **ED's** criadas, entra a parte de remoção. Utilizando o mesmo arquivo para a pesquisa, os elementos que estiverem presente na pesquisa são removidos.
+O objetivo é pegar cada uma das etapas, *inserção*, *pesquisa* e *remoção*, calcular seus tempos de forma independente para cada uma das estruturas e assim, análisa-las, apresentar seus resultados e discuti-las.
 
-## 4 - Resultados
+## 3 - Metodologia
 
 ## 5 - Conclusão
 
