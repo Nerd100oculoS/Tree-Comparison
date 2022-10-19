@@ -9,8 +9,6 @@
  */
 void GeneratorNumbers(const int size, string name_arq){
     
-    //clock_t start_s, end_s;
-    
     random_device rd;
     mt19937  ra(rd());
 
@@ -28,10 +26,6 @@ void GeneratorNumbers(const int size, string name_arq){
             file << fixed << setprecision(PRECISION) << distribution(ra) << endl;
 
         }
-        // end_s = clock();
-        // double time_taken = double(end_s - start_s) / double(CLOCKS_PER_SEC);
-        // cout << "Tempo para gerar " << size << " n\u00fameros: " << fixed << time_taken << setprecision(5)
-        //     << " segundos" << endl;
 
     }else{
 
@@ -80,8 +74,8 @@ void InsertNumbersInBTree(BTree_Tree **root, string name_arq){
 
         }
         
-        cout << "Tempo médio de inserção: " << 
-         fixed <<  setprecision (10) << (double)(soma/cont) <<
+        cout << "Tempo de inserção: " << 
+         fixed <<  setprecision(6) << (double)(soma) <<
         "s"  << endl;  
         
     }else{cout << "\nERRO AO ABRIR O ARQUIVO!\n" << endl;}
@@ -99,8 +93,7 @@ void SearchAndRemoveNumbersInBTree(BTree_Tree **root){
     steady_clock::time_point start_s, end_s;
     steady_clock::time_point start_r, end_r;
     
-    int cont_s, cont_r;
-    cont_s = cont_r = 0;
+    
 
     double soma_search = 0.0;
     double soma_remove = 0.0;
@@ -123,7 +116,7 @@ void SearchAndRemoveNumbersInBTree(BTree_Tree **root){
             start_s = steady_clock::now();
             BTree_pesquisa(root,&aux,r);
             end_s = steady_clock::now();
-            cont_s++;
+        
 
             auto time_s = duration_cast<duration<double>>(end_s - start_s);
             soma_search += (double)time_s.count();
@@ -133,19 +126,19 @@ void SearchAndRemoveNumbersInBTree(BTree_Tree **root){
                 start_r = steady_clock::now();
                 BTree_remove(root,aux->reg);
                 end_r = steady_clock::now();
-                cont_r++;
+                
 
                 auto time_r = duration_cast<duration<double>>(end_r - start_r);
                 soma_remove += (double)time_r.count();
             }
         }
         //cout << endl << cont_s << endl;
-        cout << "Tempo Médio de pesquisa: " << fixed << setprecision(10) <<
-         (double)(soma_search/cont_s) << "s" << endl;
+        cout << "Tempo de pesquisa: " << fixed << setprecision(6) <<
+         (double)(soma_search) << "s" << endl;
 
         //cout << endl << cont_r << endl;
-        cout << "Tempo Médio de remoção: " << fixed << setprecision(10) <<
-         (double)(soma_remove/cont_r) << "s" << endl;
+        cout << "Tempo de remoção: " << fixed << setprecision(6) <<
+         (double)(soma_remove) << "s" << endl;
     
     }else{
         cout << "erro!" << endl;
@@ -160,7 +153,7 @@ void SearchAndRemoveNumbersInBTree(BTree_Tree **root){
 void MakeBinaryTree(){
 
     cout << "\nFile1.txt" << endl;
-    for(int i = 0; i < 3; i++){
+    for(int i = 0; i < 10; i++){
 
         BTree_Tree *root = BTree_CreateTree();
 
@@ -171,7 +164,7 @@ void MakeBinaryTree(){
     }
 
     cout << "\nFile2.txt" << endl;
-    for(int i = 0; i < 3; i++){
+    for(int i = 0; i < 10; i++){
 
         BTree_Tree *root = BTree_CreateTree();
 
@@ -182,7 +175,7 @@ void MakeBinaryTree(){
     }
 
     cout << "\nFile3.txt" << endl;
-    for(int i = 0; i < 3; i++){
+    for(int i = 0; i < 10; i++){
 
         BTree_Tree *root = BTree_CreateTree();
 
@@ -193,7 +186,7 @@ void MakeBinaryTree(){
     }
 
     cout << "\nFile4.txt" << endl;
-    for(int i = 0; i < 3; i++){
+    for(int i = 0; i < 10; i++){
 
         BTree_Tree *root = BTree_CreateTree();
 
@@ -243,8 +236,8 @@ void InsertNumbersInAVL(AVL_Tree **root, string name_arq){
             soma += (double)time.count();
         }
         
-        cout << "Tempo médio de inserção: " << 
-         fixed <<  setprecision (10) << (double)(soma/cont) <<
+        cout << "Tempo de inserção: " << 
+         fixed <<  setprecision (6) << (double)(soma) <<
         "s"  << endl;  
         
     }else{cout << "\nERRO AO ABRIR O ARQUIVO!\n" << endl;}
@@ -262,8 +255,7 @@ void SearchAndRemoveNumbersInAVL(AVL_Tree **root){
     steady_clock::time_point start_s, end_s;
     steady_clock::time_point start_r, end_r;
     
-    int cont_s, cont_r;
-    cont_s = cont_r = 0;
+    
 
     double soma_search = 0.0;
     double soma_remove = 0.0;
@@ -286,7 +278,7 @@ void SearchAndRemoveNumbersInAVL(AVL_Tree **root){
             start_s = steady_clock::now();
             AVL_pesquisa(root,&aux,r);
             end_s = steady_clock::now();
-            cont_s++;
+        
 
             auto time_s = duration_cast<duration<double>>(end_s - start_s);
             soma_search += (double)time_s.count();
@@ -296,19 +288,19 @@ void SearchAndRemoveNumbersInAVL(AVL_Tree **root){
                 start_r = steady_clock::now();
                 AVL_remove(root, root, aux->reg);
                 end_r = steady_clock::now();
-                cont_r++;
+                
 
                 auto time_r = duration_cast<duration<double>>(end_r - start_r);
                 soma_remove += (double)time_r.count();
             }
         }
         //cout << endl << cont_s << endl;
-        cout << "Tempo Médio de pesquisa: " << fixed << setprecision(10) <<
-         (double)(soma_search/cont_s) << "s" << endl;
+        cout << "Tempo de pesquisa: " << fixed << setprecision(6) <<
+         (double)(soma_search) << "s" << endl;
 
         //cout << endl << cont_r << endl;
-        cout << "Tempo Médio de remoção: " << fixed << setprecision(10) <<
-         (double)(soma_remove/cont_r) << "s" << endl;
+        cout << "Tempo de remoção: " << fixed << setprecision(6) <<
+         (double)(soma_remove) << "s" << endl;
     
     }else{
         cout << "erro!" << endl;
@@ -320,7 +312,7 @@ void SearchAndRemoveNumbersInAVL(AVL_Tree **root){
 void MakeAVLTree(){
 
     cout << "\nFile1.txt" << endl;
-    for(int i = 0; i < 3; i++){
+    for(int i = 0; i < 10; i++){
 
         AVL_Tree *root = AVL_CreateTree();
 
@@ -331,7 +323,7 @@ void MakeAVLTree(){
     }
 
     cout << "\nFile2.txt" << endl;
-    for(int i = 0; i < 3; i++){
+    for(int i = 0; i < 10; i++){
 
         AVL_Tree *root = AVL_CreateTree();
 
@@ -342,7 +334,7 @@ void MakeAVLTree(){
     }
 
     cout << "\nFile3.txt" << endl;
-    for(int i = 0; i < 3; i++){
+    for(int i = 0; i < 10; i++){
 
         AVL_Tree *root = AVL_CreateTree();
 
@@ -353,7 +345,7 @@ void MakeAVLTree(){
     }
 
     cout << "\nFile4.txt" << endl;
-    for(int i = 0; i < 3; i++){
+    for(int i = 0; i < 10; i++){
 
         AVL_Tree *root = AVL_CreateTree();
 
@@ -394,8 +386,8 @@ void InsertNumbersInRB(rb_tree<double> *root, string name_arq){
             soma += (double)time.count();
         }
         
-        cout << "Tempo médio de inserção: " << 
-         fixed <<  setprecision (10) << (double)(soma/cont) <<
+        cout << "Tempo de inserção: " << 
+         fixed <<  setprecision (6) << (double)(soma) <<
         "s"  << endl;  
         
     }else{cout << "\nERRO AO ABRIR O ARQUIVO!\n" << endl;}
@@ -407,9 +399,6 @@ void SearchAndRemoveNumbersInRB(rb_tree<double> *root){
 
     steady_clock::time_point start_s, end_s;
     steady_clock::time_point start_r, end_r;
-    
-    int cont_s, cont_r;
-    cont_s = cont_r = 0;
 
     double soma_search = 0.0;
     double soma_remove = 0.0;
@@ -428,7 +417,6 @@ void SearchAndRemoveNumbersInRB(rb_tree<double> *root){
             start_s = steady_clock::now();
             int i = root->search(token_number); //Apenas para retorno caso encontre.
             end_s = steady_clock::now();
-            cont_s++;
 
             auto time_s = duration_cast<duration<double>>(end_s - start_s);
             soma_search += (double)time_s.count();
@@ -438,19 +426,18 @@ void SearchAndRemoveNumbersInRB(rb_tree<double> *root){
                 start_r = steady_clock::now();
                 root->erase(token_number);
                 end_r = steady_clock::now();
-                cont_r++;
 
                 auto time_r = duration_cast<duration<double>>(end_r - start_r);
                 soma_remove += (double)time_r.count();
             }
         }
         //cout << endl << cont_s << endl;
-        cout << "Tempo Médio de pesquisa: " << fixed << setprecision(10) <<
-         (double)(soma_search/cont_s) << "s" << endl;
+        cout << "Tempo de pesquisa: " << fixed << setprecision(6) <<
+         (double)(soma_search) << "s" << endl;
 
         //cout << endl << cont_r << endl;
-        cout << "Tempo Médio de remoção: " << fixed << setprecision(10) <<
-         (double)(soma_remove/cont_r) << "s" << endl;
+        cout << "Tempo de remoção: " << fixed << setprecision(6) <<
+         (double)(soma_remove) << "s" << endl;
     
     }else{
         cout << "erro!" << endl;
@@ -462,7 +449,7 @@ void SearchAndRemoveNumbersInRB(rb_tree<double> *root){
 void MakeRBTree(){
 
     cout << "\nFile1.txt" << endl;
-    for(int i = 0; i < 3; i++){
+    for(int i = 0; i < 10; i++){
 
         rb_tree<double> root;
 
@@ -473,7 +460,7 @@ void MakeRBTree(){
     }
 
     cout << "\nFile2.txt" << endl;
-    for(int i = 0; i < 3; i++){
+    for(int i = 0; i < 10; i++){
 
         rb_tree<double> root;
 
@@ -484,7 +471,7 @@ void MakeRBTree(){
     }
 
     cout << "\nFile3.txt" << endl;
-    for(int i = 0; i < 3; i++){
+    for(int i = 0; i < 10; i++){
 
         rb_tree<double> root;
 
@@ -495,7 +482,7 @@ void MakeRBTree(){
     }
 
     cout << "\nFile4.txt" << endl;
-    for(int i = 0; i < 3; i++){
+    for(int i = 0; i < 10; i++){
 
         rb_tree<double> root;
 
@@ -504,27 +491,6 @@ void MakeRBTree(){
         cout << endl << endl;
 
     }
-}
-
-template<typename T>
-int binarySearch(const vector<T> &vec, T &item, int s1, int s2) {
-    if (s1 > s2)
-        return -1;
-
-    auto middle = (s1 + s2) / 2;
-
-    if (item == vec.at(middle))
-        return middle;
-
-    if (item > vec.at(middle))
-        return binarySearch(vec, item, middle + 1, s2);
-    else
-        return binarySearch(vec, item, s1, middle - 1);
-}
-
-template<typename T>
-int searchVector(const vector<T> &vec, T &item) {
-    return binarySearch(vec, item, 0, vec.size() - 1);
 }
 
 void InsertAndOrdenateNumbersInVector(vector<double> &vec, string name_arq){
@@ -548,26 +514,18 @@ void InsertAndOrdenateNumbersInVector(vector<double> &vec, string name_arq){
             
             start_s = steady_clock::now();
             vec.push_back(token_number);
-            end_s = steady_clock::now();
             cont++;
 
-            auto time_s = duration_cast<duration<double>>(end_s-start_s);
-
-            soma += (double)time_s.count();
         }
         
-        cout << "Tempo médio de inserção: " << 
-         fixed <<  setprecision (10) << (double)(soma/cont) <<
-        "s"  << endl;  
-
-        start_o = steady_clock::now();
         sort(vec.begin(), vec.end());
-        end_o = steady_clock::now();
+        end_s = steady_clock::now();
 
-        auto time_o = duration_cast<duration<double>>(end_o-start_o);
+        auto time_s = duration_cast<duration<double>>(end_s-start_s);
+        soma += (double)time_s.count();
 
-        cout << "Tempo médio de ordenação: " << 
-         fixed <<  setprecision (10) << (double)time_o.count() <<
+        cout << "Tempo de inserção: " << 
+         fixed <<  setprecision (6) << (double)(soma) <<
         "s"  << endl;  
 
     }else{cout << "\nERRO AO ABRIR O ARQUIVO!\n" << endl;}
@@ -580,8 +538,7 @@ void SearchBinaryAndRemoveInVector(vector<double> &vec){
     steady_clock::time_point start_sb, end_sb;
     steady_clock::time_point start_s, end_s;
     steady_clock::time_point start_r, end_r;
-    int cont_s, cont_r;
-    cont_s = cont_r = 0;
+    
 
     double soma_searchBinary = 0.0;
     double soma_search = 0.0;
@@ -599,10 +556,8 @@ void SearchBinaryAndRemoveInVector(vector<double> &vec){
             token_number = stod(token_string);
             
             start_sb = steady_clock::now();
-            searchVector(vec,token_number);
+            bool pesq_bina = binary_search(vec.begin(),vec.end(),token_number);
             end_sb = steady_clock::now();
-            
-            cont_s++;
 
             auto time_sb = duration_cast<duration<double>>(end_sb - start_sb);
             soma_searchBinary += (double)time_sb.count();
@@ -624,21 +579,19 @@ void SearchBinaryAndRemoveInVector(vector<double> &vec){
 
                 auto time_s = duration_cast<duration<double>>(end_s - start_s);
                 soma_remove += (double)time_sb.count();
-                cont_r++;
+                
             }
         }
 
 
-        cout << "Tempo Médio de pesquisa binária: " << fixed << setprecision(10) <<
-         (double)(soma_searchBinary/cont_s) << "s" << endl;
+        cout << "Tempo de pesquisa binária: " << fixed << setprecision(6) <<
+         (double)(soma_searchBinary) << "s" << endl;
         
-        cout << "Tempo de pesquisa normal:\n"<<
-        "  Tempo total: " << fixed << setprecision(10) <<
-         (double)(soma_search) << "s\n" <<
-         "  Tempo médio: " << fixed << setprecision(10) << (double)(soma_search/cont_s) << endl;
+        cout << "Tempo de pesquisa normal: " << fixed << setprecision(6) << 
+        (double)(soma_search) << "s" << endl;
         
-        cout << "Tempo Médio de remoção: " << fixed << setprecision(10) <<
-         (double)(soma_remove/cont_r) << "s" << endl;
+        cout << "Tempo de remoção: " << fixed << setprecision(6) <<
+         (double)(soma_remove) << "s" << endl;
 
     }else{
         cout << "erro!" << endl;
@@ -650,7 +603,7 @@ void SearchBinaryAndRemoveInVector(vector<double> &vec){
 void MakeVector(){
 
     cout << "\nFile1.txt" << endl;
-    for(int i = 0; i < 3; i++){
+    for(int i = 0; i < 10; i++){
 
         vector<double> vec;
 
@@ -661,7 +614,7 @@ void MakeVector(){
     }
 
     cout << "\nFile2.txt" << endl;
-    for(int i = 0; i < 3; i++){
+    for(int i = 0; i < 10; i++){
 
         vector<double> vec;
 
@@ -672,7 +625,7 @@ void MakeVector(){
     }
 
     cout << "\nFile3.txt" << endl;
-    for(int i = 0; i < 3; i++){
+    for(int i = 0; i < 10; i++){
 
         vector<double> vec;
 
@@ -683,7 +636,7 @@ void MakeVector(){
     }
 
     cout << "\nFile4.txt" << endl;
-    for(int i = 0; i < 3; i++){
+    for(int i = 0; i < 10; i++){
 
         vector<double> vec;
 
@@ -729,8 +682,8 @@ void InsertInUnorderedMap(unordered_map<double, int> *umap, string name_arq){
             soma += (double)time.count();
         }
         
-        cout << "Tempo médio de inserção: " << 
-         fixed <<  setprecision (10) << (double)(soma/cont) <<
+        cout << "Tempo de inserção: " << 
+         fixed <<  setprecision (6) << (double)(soma) <<
         "s"  << endl;  
         
     }else{cout << "\nERRO AO ABRIR O ARQUIVO!\n" << endl;}
@@ -767,7 +720,7 @@ void SearchAndRemoveUnorderedMap(unordered_map<double, int> *umap){
                 i = 0;
             }
             end_s = steady_clock::now();
-            cont_s++;
+        
 
             auto time_s = duration_cast<duration<double>>(end_s - start_s);
             soma_search += (double)time_s.count();
@@ -777,19 +730,18 @@ void SearchAndRemoveUnorderedMap(unordered_map<double, int> *umap){
                 start_r = steady_clock::now();
                 umap->erase(token_number);
                 end_r = steady_clock::now();
-                cont_r++;
-
+                
                 auto time_r = duration_cast<duration<double>>(end_r - start_r);
                 soma_remove += (double)time_r.count();
             }
         }
         //cout << endl << cont_s << endl;
-        cout << "Tempo Médio de pesquisa: " << fixed << setprecision(10) <<
-         (double)(soma_search/cont_s) << "s" << endl;
+        cout << "Tempo de pesquisa: " << fixed << setprecision(6) <<
+         (double)(soma_search) << "s" << endl;
 
         //cout << endl << cont_r << endl;
-        cout << "Tempo Médio de remoção: " << fixed << setprecision(10) <<
-         (double)(soma_remove/cont_r) << "s" << endl;
+        cout << "Tempo de remoção: " << fixed << setprecision(6) <<
+         (double)(soma_remove) << "s" << endl;
     
     }else{
         cout << "erro!" << endl;
@@ -801,7 +753,7 @@ void SearchAndRemoveUnorderedMap(unordered_map<double, int> *umap){
 void MakeUnorderedMap(){
 
     cout << "\nFile1.txt" << endl;
-    for(int i = 0; i < 3; i++){
+    for(int i = 0; i < 10; i++){
 
         unordered_map<double,int> umap;
         InsertInUnorderedMap(&umap, "File1.txt");
@@ -811,7 +763,7 @@ void MakeUnorderedMap(){
     }
 
     cout << "\nFile2.txt" << endl;
-    for(int i = 0; i < 3; i++){
+    for(int i = 0; i < 10; i++){
 
         unordered_map<double,int> umap;
         InsertInUnorderedMap(&umap, "File2.txt");
@@ -821,7 +773,7 @@ void MakeUnorderedMap(){
     }
 
     cout << "\nFile3.txt" << endl;
-    for(int i = 0; i < 3; i++){
+    for(int i = 0; i < 10; i++){
 
         unordered_map<double,int> umap;
         InsertInUnorderedMap(&umap, "File3.txt");
@@ -831,7 +783,7 @@ void MakeUnorderedMap(){
     }
 
     cout << "\nFile4.txt" << endl;
-    for(int i = 0; i < 3; i++){
+    for(int i = 0; i < 10; i++){
 
         unordered_map<double,int> umap;
         InsertInUnorderedMap(&umap, "File4.txt");
@@ -876,8 +828,8 @@ void InsertInMap(map<double, int> *mmap, string name_arq){
             soma += (double)time.count();
         }
         
-        cout << "Tempo médio de inserção: " << 
-         fixed <<  setprecision (10) << (double)(soma/cont) <<
+        cout << "Tempo de inserção: " << 
+         fixed <<  setprecision (6) << (double)(soma) <<
         "s"  << endl;  
         
     }else{cout << "\nERRO AO ABRIR O ARQUIVO!\n" << endl;}
@@ -913,7 +865,7 @@ void SearchAndRemoveMap(map<double, int> *mmap){
                 i = 0;
             }
             end_s = steady_clock::now();
-            cont_s++;
+        
 
             auto time_s = duration_cast<duration<double>>(end_s - start_s);
             soma_search += (double)time_s.count();
@@ -923,19 +875,19 @@ void SearchAndRemoveMap(map<double, int> *mmap){
                 start_r = steady_clock::now();
                 mmap->erase(token_number);
                 end_r = steady_clock::now();
-                cont_r++;
+                
 
                 auto time_r = duration_cast<duration<double>>(end_r - start_r);
                 soma_remove += (double)time_r.count();
             }
         }
         //cout << endl << cont_s << endl;
-        cout << "Tempo Médio de pesquisa: " << fixed << setprecision(10) <<
-         (double)(soma_search/cont_s) << "s" << endl;
+        cout << "Tempo de pesquisa: " << fixed << setprecision(6) <<
+         (double)(soma_search) << "s" << endl;
 
         //cout << endl << cont_r << endl;
-        cout << "Tempo Médio de remoção: " << fixed << setprecision(10) <<
-         (double)(soma_remove/cont_r) << "s" << endl;
+        cout << "Tempo de remoção: " << fixed << setprecision(6) <<
+         (double)(soma_remove) << "s" << endl;
     
     }else{
         cout << "erro!" << endl;
@@ -944,11 +896,14 @@ void SearchAndRemoveMap(map<double, int> *mmap){
     file.close();
 }
 
-
+/**
+ * @brief 
+ * 
+ */
 void MakeMap(){
 
     cout << "\nFile1.txt" << endl;
-    for(int i = 0; i < 3; i++){
+    for(int i = 0; i < 10; i++){
 
         map<double,int> mmap;
         InsertInMap(&mmap, "File1.txt");
@@ -958,7 +913,7 @@ void MakeMap(){
     }
 
     cout << "\nFile2.txt" << endl;
-    for(int i = 0; i < 3; i++){
+    for(int i = 0; i < 10; i++){
 
         map<double,int> mmap;
         InsertInMap(&mmap, "File2.txt");
@@ -968,7 +923,7 @@ void MakeMap(){
     }
 
     cout << "\nFile3.txt" << endl;
-    for(int i = 0; i < 3; i++){
+    for(int i = 0; i < 10; i++){
 
         map<double,int> mmap;
         InsertInMap(&mmap, "File3.txt");
@@ -978,7 +933,7 @@ void MakeMap(){
     }
 
     cout << "\nFile4.txt" << endl;
-    for(int i = 0; i < 3; i++){
+    for(int i = 0; i < 10; i++){
 
         map<double,int> mmap;
         InsertInMap(&mmap, "File4.txt");
