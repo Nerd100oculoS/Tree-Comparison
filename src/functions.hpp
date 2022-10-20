@@ -54,4 +54,5 @@ void MakeUnorderedMap();
 void InsertInMap(map<double, int> *mmap, string name_arq);
 void SearchAndRemoveMap(map<double, int> *mmap);
 void MakeMap();
+
 #endif

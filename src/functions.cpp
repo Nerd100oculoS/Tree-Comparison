@@ -195,7 +195,6 @@ void MakeBinaryTree(){
         cout << endl << endl;
 
     }
-
 }
 
 // -------------------------------------------------> AVL Tree:
