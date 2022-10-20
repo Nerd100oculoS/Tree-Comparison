@@ -33,6 +33,7 @@ Para conseguir fazer uma média com o tempo de cada etapa, foi implementada a fu
 <div align="center">
 
 ![make](./assets/makebtree.png "makebtree.png")
+
 Figura 1 - Código de Função **`MakeBTree()`**
 </div>
 
@@ -41,6 +42,7 @@ De forma análoga ao explicado nos parágrafos anteriores, todas as **ED's** se 
 <div align="center">
 
 ![cabecalho](./assets/cabecalho.png "cabecalho.png")
+
 Figura 2 - Arquivo cabeçalho (Funções de Implementação).
 </div>
 
