@@ -105,7 +105,19 @@ CORMEN, Thomas H. et al. Introduction to algorithms. MIT press, 2022.
 
 Ziviani, Nívio. Projetos de Algoritmos com Implementação em Pascal e C; 2022.
 
-Implementação da Árvore Binária RED-BLACK: Allen, zhaozhencn. Repository link: https://github.com/zhaozhencn/rbtree.
+Implementação da Árvore Binária RED-BLACK: Allen, zhaozhencn. [repository link]: https://github.com/zhaozhencn/rbtree.
 
+Documentação de C++: [site link]: https://cplusplus.com
+
+## 7 - Compilação e Execução
+
+Utilize os comandos conforme suas funcões para compilar e executar
+
+| Comando                |  Função                                                                                           |                     
+| -----------------------| ------------------------------------------------------------------------------------------------- |
+|  `make clean`          | Apaga a última compilação realizada contida na pasta build                                        |
+|  `make`                | Executa a compilação do programa utilizando o gcc, e o resultado vai para a pasta build           |
+|  `make run`            | Executa o programa da pasta build após a realização da compilação                                 |
 
 </div>
+
