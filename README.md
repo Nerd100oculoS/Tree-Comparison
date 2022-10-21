@@ -49,7 +49,7 @@ Figura 2 - Arquivo cabeçalho (Funções de Implementação).
 
 ## 4 - Resultados
 
-Por meio das próximas tabelas nas figuras abaixo, é possível analisar a difereça de tempo de cada estrutura. Cada estrutura foi executada 10 vezes para se calcular o tempo de cada etapa e assim, fazer média. As figuras abaixo mostram a média em segundos de cada etapa para cada estrutura com seus respectivos arquivos de entrada.
+Por meio das próximas tabelas nas figuras abaixo, é possível analisar a difereça de tempo de cada estrutura. Cada estrutura foi executada 10 vezes para se calcular o tempo de cada etapa e assim, fazer média. As figuras abaixo mostram a média em "segundos" de cada etapa para cada estrutura com seus respectivos arquivos de entrada. Todos os resultados foram obtidos em um **`Macbook Pro`**, modelo **`A2338`** com processador **`AppleSilicon M1`** de **`8GB`** de memória RAM e **`512GB`** de disco.
 
 <div align="center">
 
@@ -67,11 +67,45 @@ Por meio das próximas tabelas nas figuras abaixo, é possível analisar a difer
 
 </div>
 
-Para que seja possível discutir estes resultados, presentes nas tabelas das figuras acima, é necessário primeiro esclarecer que a estrutura ***map*** em C++ encontrada na biblioteca *<map>* na verdade não é uma **Tabela Hash**. O **map** atua como uma HASH entretanto, de forma enrustida no código da biblioteca, tem-se que o **map** é na verdade uma **Árvore Binária RED-BLACK** otimizada, visto que é uma biblioteca padrão do C++.
+Para que seja possível discutir estes resultados, presentes nas tabelas das figuras acima, é necessário primeiro esclarecer que a estrutura ***map*** em C++ encontrada na biblioteca *<map>* na verdade não é uma **Tabela Hash**. O **map** atua como uma HASH entretanto, de forma enrustida no código da biblioteca, tem-se que o **map** é na verdade uma **Árvore Binária RED-BLACK** otimizada, visto que é uma biblioteca padrão do C++. Além do fator anterior é importante ressaltar que a "massa de dados" interfere diretamente no tempo de cada uma das etapas.
+
+Por meio dos dados acima é possível provar que os dados afetam o tempo em cada uma das etapas nas três árvores e no **Vetor Dinâmico**. No caso das estrturas em árvore, quanto maior a massa de dados, "mais profunda" a estrtura fica, consequentemente, fica cada vez maior o tempo para caminhar pela árvore. No caso do vetor, para compará-lo com as demais estruturas é necessário ordena-lo, e a partir de uma certa quantidade de elementos, o tempo de ordenação aumenta conforme a massa de dados cresce.
+
+Ao fazer a comparação de tempo das tabelas das três **Árvores Binárias**, é possível comprovar que ambas as estruturas estão praticamente identicas aos tempos de cada etapa. Com desvios-padrões pequenos. A figura 9 abaixo apresenta o desvio-padrão de cada etapa referente, a cada arquivo, de forma análoga as tabelas mostradas nas figuras anteriores.
+
+<div align="center">
+
+![](assets/dp-ab.png)<br>Figura 9 - Desvio-Padrão das **Árvores Binárias** referente as etapas em cada arquivo de entrada.
+
+</div>
+
+Com relação ao **Vetor Dinâmico** tem-se uma discrepância no desvio-padrão da pesquisa sequencial padrão, pois, quanto maior o tamanho do vetor, maior será o tempo que ele levará para fazer uma pesquisa sequencial. Por isso, nos gráficos abaixo, o tempo de **Pesquisa Binária** foi o utilizado para comparar com as demais estruturas. Também, como foi mostrado,que "massa de dados" influência  diretamente no tempo das etapas, os gráficos mostram as etapas de *inserção*, *pesquisa* e *remoção* de cada **ED** construídas a partir do arquivo *"File4"* que possui a maior quantidade de entradas.
+
+<div align="center">
+
+![](assets/insert.png)<br>Figura 10 - Etapa de *inserção* em cada uma das estruturas para 500.000 entradas.
+
+![](assets/search.png)<br>Figura 10 - Etapa de *pesquisa* em cada uma das estruturas.
+
+![](assets/remove.png)<br>Figura 10 - Etapa de *remoção* em cada uma das estruturas.
+
+</div>
 
 ## 5 - Conclusão
 
+Dessa forma, conforme o que foi apresentado, pode-se concluir o melhor desempenho das estruturas **`unordered_map`** e **`map`**. Entretanto, é importante ressaltar alguns pontos. Primeiro, "qual o tamanho da massa de dados?", "como estes dados estão estruturados?". Estas duas perguntas devem ser feitas, pois, se a massa de dados é substancialmente grande, pensar em memória é importante. - Para o arquivo com 500.000 entradas, por exemplo, tanto as **Árvores Binárias**, quanto o **Vetor Dinâmico** e as **Tabelas Hash** irão utilizar de Swap e/ou memória secundária. Com relação a segunda pergunta, conhecer sobre como os dados estão distribuídos, se estão ou não ordenados, se há grande quantidade de repetições, influência - Como exemplo, quanto menor a quantidade de números repetidos, "mais profunda" será a árvore binária e neste caso já devemos olhar a primeira pergunta novamente.
+
+O segundo ponto que é importante ressaltar é que, todas as estruturas podem atender a inúmeros casos, mas nem todas as estruturas irão "performar" tão bem. Como é o caso da **Árvore Binária RED-BLACK**, que ao se comparar com a estrutura **`map`** - que é a mesma estrutura de uma "RED-BLACK" -, possui um desempenho muito inferior ao **`map`** - Isto, de acordo com os resultados apresentados.
+
+O terceiro e ultimo ponto é o hardware. Memória é um recurso finito e por isso, deve se procurar utilizar a melhor estrutura possível para cada caso. "Menos tempo, menor gasto de energia".
+
 ## 6 - Referências
+
+CORMEN, Thomas H. et al. Introduction to algorithms. MIT press, 2022.
+
+Ziviani, Nívio. Projetos de Algoritmos com Implementação em Pascal e C; 2022.
+
+Implementação da Árvore Binária RED-BLACK: Allen, zhaozhencn. Repository link: https://github.com/zhaozhencn/rbtree.
 
 
 </div>
