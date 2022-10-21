@@ -59,13 +59,11 @@ Por meio das próximas tabelas nas figuras abaixo, é possível analisar a difer
 
 ![](assets/rb.png)<br>Figura 5 - Média de tempos da **Árvore Binária RED-BLACK**
 
-![](assets/rb.png)<br>Figura 6 - Média de tempos da **Árvore Binária RED-BLACK**
+![](assets/vec.png)<br>Figura 6 - Média de tempos do **Vetor Dinâmico**
 
-![](assets/vec.png)<br>Figura 7 - Média de tempos do **Vetor Dinâmico**
+![](assets/hash_umap.png)<br>Figura 7 - Média de tempos da **Tabela Hash**
 
-![](assets/hash_umap.png)<br>Figura 8 - Média de tempos da **Tabela Hash**
-
-![](assets/map.png)<br>Figura 9 - Média de tempos do **Map**
+![](assets/map.png)<br>Figura 8 - Média de tempos do **Map**
 
 </div>
 
