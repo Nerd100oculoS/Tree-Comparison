@@ -8,7 +8,7 @@
 
 ## 1 - Introdução
 
-**Árvores de Pesquisa Binária (APB)**, Árvores Binárias balanceadas **AVL** e **Red-Black**, **Vetores Dinâmicos** - *vector* em C++ - e **Tabela Hash** - *unordered_map* e *map* em C++ - são as estruturas que foram comparadas neste repósitorio. Nos tópicos a seguir, será discutido brevemente o que são estas estruturas e o porquê de compará-las entre si, além de apresentar resultados obtidos e também discuti-los.
+**Árvores de Pesquisa Binária (APB)**, Árvores Binárias balanceadas **AVL** e **Red-Black**, **Vetores Dinâmicos** - *vector* em C++ - e **Tabela Hash** - *unordered_map* e *map* em C++ - são as estruturas que foram comparadas neste repósitorio. Nos tópicos a seguir, será discutido brevemente o que são estas estruturas e o porquê de compará-las entre si, além de apresentar os resultados obtidos e discuti-los.
 
 ## 2 - Apresentação e objetivo
 
@@ -18,7 +18,7 @@ Após a criação de cada estrutura tem-se o arquivo *search.txt* com 10.000 (De
 
 Fazendo cada um dos procedimentos descritos nos parágrafos acima para cada uma das **ED's** criadas, entra a parte de remoção. Utilizando o mesmo arquivo para a pesquisa, os elementos que estiverem presente na pesquisa são removidos.
 
-O objetivo é executar cada uma das etapas, *inserção*, *pesquisa* e *remoção*, calcular seus tempos de forma independente para cada uma das estruturas e assim, análisar, apresentar seus resultados e discuti-los.
+O objetivo é executar cada uma das etapas, *inserção*, *pesquisa* e *remoção*, calcular seus tempos de forma independente para cada uma das estruturas e assim, análisar, apresentar seus resultados.
 
 ## 3 - Metodologia
 
@@ -37,7 +37,7 @@ Para conseguir fazer uma média com o tempo de cada etapa, foi implementada a fu
 Figura 1 - Código de Função **`MakeBTree()`**
 </div>
 
-De forma análoga ao explicado nos parágrafos anteriores, todas as **ED's** se baseiam neste formato de 3 funções para as etapas a serem executadas. Com a execessão do **Vetor(vector)** - que não é uma **ED**, mas sim, um **Vetor Dinâmico** -, cuja a função de *inserção*, o tempo é calculado juntamente com a **Ordenação** do vetor. Além disso, na função de *pesquisa* e *remoção* é tabém obtido o tempo de **Pesquisa Binária** no vetor. Na figura 2 a seguir, mostra o arquivo cabeçalho do código para melhor entendimento.
+De forma análoga ao explicado nos parágrafos anteriores, todas as **ED's** se baseiam neste formato de 3 funções para as etapas a serem executadas. Com a execessão do **Vetor(vector)** - que não é uma **ED**, mas sim, um **Vetor Dinâmico** -, cujo na função de *inserção*, o tempo é calculado juntamente com a **Ordenação** do vetor. Além disso, na função de *pesquisa* e *remoção* é tabém obtido o tempo de **Pesquisa Binária** no vetor. Na figura 2 a seguir, mostra o arquivo cabeçalho do código para melhor entendimento.
 
 <div align="center">
 
@@ -47,7 +47,29 @@ Figura 2 - Arquivo cabeçalho (Funções de Implementação).
 </div>
 
 
-## 4 - Resultados e Discussão
+## 4 - Resultados
+
+Por meio das próximas tabelas nas figuras abaixo, é possível analisar a difereça de tempo de cada estrutura. Cada estrutura foi executada 10 vezes para se calcular o tempo de cada etapa e assim, fazer média. As figuras abaixo mostram a média em segundos de cada etapa para cada estrutura com seus respectivos arquivos de entrada.
+
+<div align="center">
+
+![](assets/apb.png)<br>Figura 3 - Média de tempos da **Árvore de Pesquisa Binária**
+
+![](assets/avl.png)<br>Figura 4 - Média de tempos da **Árvore Binária AVL**
+
+![](assets/rb.png)<br>Figura 5 - Média de tempos da **Árvore Binária RED-BLACK**
+
+![](assets/rb.png)<br>Figura 6 - Média de tempos da **Árvore Binária RED-BLACK**
+
+![](assets/vec.png)<br>Figura 7 - Média de tempos do **Vetor Dinâmico**
+
+![](assets/hash_umap.png)<br>Figura 8 - Média de tempos da **Tabela Hash**
+
+![](assets/map.png)<br>Figura 9 - Média de tempos do **Map**
+
+</div>
+
+Para que seja possível discutir estes resultados, presentes nas tabelas das figuras acima, é necessário primeiro esclarecer que a estrutura ***map*** em C++ encontrada na biblioteca *<map>* na verdade não é uma **Tabela Hash**. O **map** atua como uma HASH entretanto, de forma enrustida no código da biblioteca, tem-se que o **map** é na verdade uma **Árvore Binária RED-BLACK** otimizada, visto que é uma biblioteca padrão do C++.
 
 ## 5 - Conclusão
 
